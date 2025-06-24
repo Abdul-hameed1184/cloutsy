@@ -1,7 +1,7 @@
 import React from "react";
 import Feature from "../components/common/Feature";
 import Input from "../components/common/Input";
-import { User, AtSign, Mail, Globe, Phone, Lock, Rocket, Shield, Headphones } from 'lucide-react';
+import { User, AtSign, Mail, Globe, Phone, Lock, Rocket, Shield, Headphones, Link } from 'lucide-react';
 
 
 const Register = () => {
@@ -75,9 +75,9 @@ const Register = () => {
 
           <p className="text-center text-sm mt-4">
             Already have an account?{" "}
-            <a href="#" className="text-blue-600 font-medium">
+            <Link to={'/'} className="text-blue-600 font-medium">
               Login Here
-            </a>
+            </Link>
           </p>
         </div>
       </div>
