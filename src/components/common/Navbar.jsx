@@ -5,14 +5,15 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header
-      className="w-full bg-white border-b border-[#003087]"
-      style={{
-        boxShadow:
-          "0 4px 20px rgba(0, 48, 135, 0.4), 0 2px 6px rgba(0, 48, 135, 0.2)",
-      }}
-    >
-      <div className="max-w-[1600px] mx-auto px-4 md:px-10 py-4 flex items-center justify-between">
+<header
+  className="w-full bg-white fixed z-50 "
+  style={{
+    boxShadow:
+      "0 2px 8px rgba(0, 48, 135, 0.15), 0 4px 20px rgba(0, 48, 135, 0.08)",
+  }}
+>
+
+      <div className="max-w-[1600px] mx-auto px-4 md:px-10 py-6 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-1">
           <img src="/logo.svg" alt="Palash Logo" className="h-8 md:h-10" />

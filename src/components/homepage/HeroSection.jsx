@@ -1,7 +1,9 @@
 import { Lock, User } from "lucide-react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate()
   return (
     <section className="min-h-[90vh] w-full bg-[#003087] flex items-center px-4 md:px-10 py-6 overflow-hidden">
       <div className="max-w-[1250px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
@@ -61,7 +63,7 @@ const HeroSection = () => {
             <p className="text-yellow-400 font-medium">Forgot Your Password?</p>
             <p>
               Don’t have an account?{" "}
-              <span className="text-yellow-400 font-bold cursor-pointer">
+              <span className="text-yellow-400 font-bold cursor-pointer" onClick={()=> navigate('/register')}>
                 Sign up
               </span>
             </p>

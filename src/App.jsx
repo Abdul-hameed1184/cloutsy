@@ -1,27 +1,23 @@
-import React from 'react'
-import Header from './components/common/Header'
-import LoginForm from './components/homepage/Login'
-import Perks from './components/homepage/Perks'
-import HowItWorks from './components/homepage/HowItWorks'
-import Testimonials from './components/homepage/Testimonials'
-import AboutUs from './components/homepage/AboutUs'
-import Footer from './components/common/Footer'
-import HeroSection from './components/homepage/HeroSection'
-import Navbar from './components/common/Navbar'
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import Register from "./pages/Register";
+import Layout from "./Layout";
+
 
 const App = () => {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<Layout/>} >
+        <Route path="/" element={<HomePage />} />
+        <Route path="/register" element={<Register />} />
+        </Route>
+    )
+  )
   return (
     <div>
-      {/* <Header/> */}
-      <Navbar/>
-      <HeroSection/>
-      <Perks/>
-      <HowItWorks/>
-      <Testimonials/>
-      <AboutUs/>
-<Footer/>
+      <RouterProvider router={router} />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
