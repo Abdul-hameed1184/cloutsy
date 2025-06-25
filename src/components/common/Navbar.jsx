@@ -15,27 +15,24 @@ const Navbar = () => {
       <div className="max-w-[1600px] mx-auto px-4 md:px-10 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-1">
-          <img src="/logo.svg" alt="Palash Logo" className="h-8 md:h-10" />
-          <span className="text-xs font-semibold text-[#003087] -mt-2">
-            SMM
-          </span>
+          <img src="/logo.png" alt="Palash Logo" className="h-8 md:h-10" />
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex space-x-8 text-sm font-medium text-[#001a4d]">
-          <a href="#home" className="hover:text-[#003087] transition">
+        <nav className="hidden md:flex space-x-8 text-sm font-medium text-blue-800">
+          <a href="#home" className="hover:text-[#954C2E] transition">
             Home
           </a>
-          <a href="#about" className="hover:text-[#003087] transition">
+          <a href="#about" className="hover:text-[#954C2E] transition">
             About
           </a>
-          <a href="#services" className="hover:text-[#003087] transition">
+          <a href="#services" className="hover:text-[#954C2E] transition">
             Service
           </a>
-          <a href="#faq" className="hover:text-[#003087] transition">
+          <a href="#faq" className="hover:text-[#954C2E] transition">
             FAQ
           </a>
-          <a href="#contact" className="hover:text-[#003087] transition">
+          <a href="#contact" className="hover:text-[#954C2E] transition">
             Contact
           </a>
         </nav>
@@ -51,27 +48,27 @@ const Navbar = () => {
       {/* Mobile Nav Menu */}
       {open && (
         <div className="md:hidden bg-white border-t border-gray-200 px-6 py-4 space-y-2">
-          <a href="#home" className="block text-[#001a4d] hover:text-[#003087]">
+          <a href="#home" className="block text-[#001a4d] hover:text-[#954C2E]">
             Home
           </a>
           <a
             href="#about"
-            className="block text-[#001a4d] hover:text-[#003087]"
+            className="block text-[#001a4d] hover:text-[#954C2E]"
           >
             About
           </a>
           <a
             href="#services"
-            className="block text-[#001a4d] hover:text-[#003087]"
+            className="block text-[#001a4d] hover:text-[#954C2E]"
           >
             Service
           </a>
-          <a href="#faq" className="block text-[#001a4d] hover:text-[#003087]">
+          <a href="#faq" className="block text-[#001a4d] hover:text-[#954C2E]">
             FAQ
           </a>
           <a
             href="#contact"
-            className="block text-[#001a4d] hover:text-[#003087]"
+            className="block text-[#001a4d] hover:text-[#954C2E]"
           >
             Contact
           </a>
