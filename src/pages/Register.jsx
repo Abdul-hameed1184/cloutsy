@@ -6,7 +6,7 @@ import { User, AtSign, Mail, Globe, Phone, Lock, Rocket, Shield, Headphones, Lin
 
 const Register = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#f9f9fb] px-4 py-8 pt-48">
+    <div className="min-h-screen flex items-center justify-center bg-[#17005d] px-4 py-8 pt-48">
       <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Left Side: Features */}
         <div className="flex flex-col justify-center gap-6">
@@ -45,11 +45,21 @@ const Register = () => {
               icon={<Mail size={16} />}
               type="email"
             />
-            <Input
-              label="Country Code"
-              icon={<Globe size={16} />}
-              defaultValue="+93 (Afghanistan)"
-            />
+            <select className="border-b-1 border-gray-300 outline-none"
+            defaultValue="+93" 
+            name="countryCode" icon={<Globe size={16}/>}
+            >
+            <option value="+93">+93 (Afghanistan)</option>
+            <option value="+1">+1 (United States)</option>
+            <option value="+44">+44 (United Kingdom)</option>
+            <option value="+91">+91 (India)</option>
+            <option value="+61">+61 (Australia)</option>
+            <option value="+81">+81 (Japan)</option>
+            <option value="+49">+49 (Germany)</option>
+            <option value="+234">+234 (Nigeria)</option>
+            <option value="+971">+971 (UAE)</option>
+            {/* Add more countries as needed */}
+          </select>
             <Input label="Phone Number" icon={<Phone size={16} />} />
             <Input label="Password" icon={<Lock size={16} />} type="password" />
             <Input
@@ -72,13 +82,7 @@ const Register = () => {
           <button className="mt-6 w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 rounded-md transition">
             Create Account
           </button>
-
-          <p className="text-center text-sm mt-4">
-            Already have an account?{" "}
-            <Link to={'/'} className="text-blue-600 font-medium">
-              Login Here
-            </Link>
-          </p>
+         
         </div>
       </div>
     </div>

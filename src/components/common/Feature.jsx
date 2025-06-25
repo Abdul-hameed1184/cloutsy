@@ -7,7 +7,7 @@ const Feature = ({ icon, title, description }) => (
       {icon}
     </div>
     <div>
-      <h4 className="text-lg font-semibold text-[#0b1226]">{title}</h4>
+      <h4 className="text-lg font-semibold text-[#ffffff]">{title}</h4>
       <p className="text-sm text-gray-600">{description}</p>
     </div>
   </div>
