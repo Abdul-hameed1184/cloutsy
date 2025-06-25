@@ -1,6 +1,4 @@
 
-import React from 'react'
-
 const Feature = ({ icon, title, description }) => (
   <div className="flex items-start gap-4">
     <div className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-100">
