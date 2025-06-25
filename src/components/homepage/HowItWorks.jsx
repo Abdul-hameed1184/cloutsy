@@ -4,23 +4,23 @@ import { User, DollarSign, Grid, BarChart3 } from 'lucide-react'
 const steps = [
   {
     icon: <User className="w-6 h-6 text-[#0047FF]" />,
-    title: '1. Create your account',
-    desc: 'Creating an account is the first step, then you need to log in',
+    title: '1. Sign Up',
+    desc: 'Create a free account in seconds.',
   },
   {
     icon: <DollarSign className="w-6 h-6 text-[#0047FF]" />,
-    title: '2. Fund your account',
-    desc: 'Next, pick a payment method and add funds to your account',
+    title: '2. Add Funds',
+    desc: 'Securely top up using Paystack, Flutterwave, crypto, or card.',
   },
   {
     icon: <Grid className="w-6 h-6 text-[#0047FF]" />,
-    title: '3. Select Services',
-    desc: 'Select the services you want and get ready to receive more publicity',
+    title: '3. Place an Order ',
+    desc: 'Choose a platform, paste your link, select a service.',
   },
   {
     icon: <BarChart3 className="w-6 h-6 text-[#0047FF]" />,
-    title: '4. Enjoy Results !',
-    desc: 'You can enjoy incredible results when your order is complete',
+    title: '4. Watch It Grow!',
+    desc: ' Sit back and let Clousty handle the rest.',
   },
 ]
 
@@ -35,11 +35,10 @@ const HowItWorks = () => {
         className="text-center max-w-3xl mx-auto"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-[#0b1226]">
-          How <span className="text-[#0047FF]">Palash SMM</span> Works
+          How <span className="text-[#0047FF]">CLOUSTY SMM</span> Works
         </h2>
         <p className="text-gray-600 mt-3 text-sm md:text-base">
-          How to get started with Palash SMM and boost your social media game –
-          Proven results, unwavering support, where visibility meets real influence.
+          Kickstart your journey with Clousty SMM and elevate your social media presence — trusted results, reliable support, and the perfect blend of visibility and real influence.
         </p>
       </motion.div>
 

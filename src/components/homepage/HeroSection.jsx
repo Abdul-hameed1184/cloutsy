@@ -1,9 +1,11 @@
 import { Lock, User } from "lucide-react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate()
   return (
-    <section className="min-h-[90vh] w-full bg-[#17005d] flex items-center px-4 md:px-10 py-6 overflow-hidden">
+    <section className="min-h-[90vh] w-full bg-[#17005d] flex items-center px-4 md:px-10 py-6 pt-28 overflow-hidden">
       <div className="max-w-[1250px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
         {/* Left Column - Login Form */}
         <motion.div
@@ -60,7 +62,7 @@ const HeroSection = () => {
             <p className="text-yellow-400 font-medium">Forgot Your Password?</p>
             <p>
               Don’t have an account?{" "}
-              <span className="text-yellow-400 font-bold cursor-pointer">
+              <span className="text-yellow-400 font-bold cursor-pointer" onClick={()=> navigate('/register')}>
                 Sign up
               </span>
             </p>
@@ -74,14 +76,8 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
           className="flex justify-center items-center"
         >
-          <div className="relative w-[340px] h-[340px] md:w-[500px] md:h-[500px] hexagon-mask rotate-90 overflow-hidden border-t-[8px] border-b-[8px] border-yellow-400 shadow-2xl">
-            <iframe
-              className="w-full h-full object-cover -rotate-90" // unrotate the video
-              src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0"
-              title="Mock YouTube Video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+          <div className="relative w-[340px] h-[340px] md:w-[500px] md:h-[500px]  overflow-hidden">
+            <img src="/hero_section.svg"  alt="CLOUSTY LOGO" />
           </div>
         </motion.div>
       </div>
