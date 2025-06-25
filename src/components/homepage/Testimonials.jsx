@@ -3,24 +3,19 @@ import { Rocket } from 'lucide-react'
 
 const testimonials = [
   {
-    name: 'Alica Fox',
-    title: 'Shola June',
-    text: 'I ordered Facebook page likes & IG followers on Palashsmm.com, I received good quality followers highly recommended, and I\'ll definitely order again Thank you.',
+    name: 'Amaka O',
+    title: 'Business Owner',
+    text: 'Clousty made my business look more professional on Instagram — orders increased the same week!',
   },
   {
-    name: 'Bosede Julianna',
-    title: 'Digital Marketer',
-    text: 'Well, I was testing the Instagram followers service and it works really well! Takes about 5–10 minutes to start and complete. I like the service.',
+    name: 'Jay M.',
+    title: 'Influencer',
+    text: 'Tried a few SMM panels before. None come close to the speed and support Clousty offers',
   },
   {
-    name: 'Tom Moddy',
-    title: 'Business Executive',
-    text: 'I have been using PalashSMM for a week now and it is easily the best panel I have used. Great prices, easy to use and always updated. Great job!',
-  },
-  {
-    name: 'Jacket',
-    title: 'Developer',
-    text: 'I actually faced a problem first try but support was there and helped me fix it. Great support and YouTube views—it’s one of the best.',
+    name: 'ChiTech Media',
+    title: 'Reseller',
+    text: 'Best pricing + instant delivery = no-brainer for my clients.',
   },
 ]
 
@@ -28,7 +23,7 @@ const loopedTestimonials = [...testimonials, ...testimonials]
 
 const Testimonials = () => {
   return (
-        <section className="relative bg-[#011248] text-white py-40 px-4 sm:px-6 md:px-12 border-y-[3px] border-yellow-400 overflow-hidden rounded-[15rem_6rem]">
+        <section className="relative bg-[#012dbc] text-white py-40 px-4 sm:px-6 md:px-12 border-y-[3px] border-yellow-400 overflow-hidden rounded-[15rem_6rem]">
 
       {/* Section Header */}
       <motion.div
@@ -38,11 +33,11 @@ const Testimonials = () => {
         className="text-center max-w-3xl mx-auto"
       >
         <h2 className="text-3xl md:text-4xl font-bold">
-          Don’t Take Our Words For It
+          Our Past Testimonies
         </h2>
         <div className="w-16 h-1 bg-yellow-400 mx-auto mt-2 rounded-full" />
         <p className="uppercase text-xs md:text-sm mt-3 tracking-wide text-gray-300">
-          See what some of our customers have to say about us
+          Join thousands of satisfied users — here’s what they have to say.
         </p>
       </motion.div>
 

@@ -31,10 +31,8 @@ const AboutUs = () => {
         </h2>
         <div className="w-16 h-1 bg-blue-700 mx-auto lg:mx-0 mb-4 rounded" />
         <p className="text-gray-800 text-base leading-relaxed">
-          We focus on delivering social media marketing solutions that help
-          brands enhance their digital footprint. Our offerings cover promotion,
-          advertising, and improving engagement metrics like likes, followers,
-          views, and comments.
+        At Clousty SMM, we specialize in delivering social media marketing solutions that amplify your digital presence.
+        From promotions and advertising to boosting engagement through likes, followers, views, and comments — we help brands grow where it matters most.
         </p>
       </motion.div>
     </section>
