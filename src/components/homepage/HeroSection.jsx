@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
   const navigate = useNavigate()
+
   return (
     <section className="min-h-[90vh] w-full bg-[#17005d] flex items-center px-4 md:px-10 py-6 pt-28 overflow-hidden">
       <div className="max-w-[1250px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
@@ -28,7 +29,13 @@ const HeroSection = () => {
             major platforms — delivered instantly.
           </p>
 
-          <form className="w-full bg-[#0f003b] p-5 pt-6 pb-8 rounded-xl space-y-4 shadow-lg">
+          <form
+            className="w-full bg-[#0f003b] p-5 pt-6 pb-8 rounded-xl space-y-4 shadow-lg"
+            onSubmit={(e) => {
+              e.preventDefault();
+              navigate("/user/dashboard");
+            }}
+          >
             <div className="relative">
               <User className="absolute left-3 top-3 text-gray-400 w-5 h-5" />
               <input

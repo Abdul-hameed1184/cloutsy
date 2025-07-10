@@ -2,6 +2,11 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import HomePage from "./pages/HomePage";
 import Register from "./pages/Register";
 import Layout from "./Layout";
+import Dashboard from "./pages/Dashboard";
+import Services from "./pages/Services";
+import AddFund from "./pages/AddFund";
+import History from "./pages/History";
+import Transactions from "./pages/Transactions";
 
 
 const App = () => {
@@ -10,6 +15,11 @@ const App = () => {
       <Route path="/" element={<Layout/>} >
         <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/user/dashboard" element={<Dashboard/>} />
+        <Route path="/user/services" element={<Services/>} />
+        <Route path="/user/funds" element={<AddFund/>} />
+        <Route path="/user/history" element={<History/>} />
+        <Route path="/user/transactions" element={<Transactions/>} />
         </Route>
     )
   )

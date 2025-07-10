@@ -1,18 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [isUserPage, setIsUserPage] = useState(false);
+
+  useEffect(() => {
+    const userpage =
+      typeof window !== "undefined" && window.location.pathname.includes("user");
+    setIsUserPage(userpage);
+  }, []);
 
   return (
-<header
-  className="w-full bg-white fixed z-50 "
-  style={{
-    boxShadow:
-      "0 2px 8px rgba(0, 48, 135, 0.15), 0 4px 20px rgba(0, 48, 135, 0.08)",
-  }}
->
-
+    <header
+      className="w-full bg-white fixed z-50 "
+      style={{
+        boxShadow:
+          "0 2px 8px rgba(0, 48, 135, 0.15), 0 4px 20px rgba(0, 48, 135, 0.08)",
+      }}
+    >
       <div className="max-w-[1600px] mx-auto px-4 md:px-10 py-6 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-1">
@@ -20,23 +26,46 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex space-x-8 text-sm font-medium text-blue-800">
-          <a href="#home" className="hover:text-[#954C2E] transition">
-            Home
-          </a>
-          <a href="#about" className="hover:text-[#954C2E] transition">
-            About
-          </a>
-          <a href="#services" className="hover:text-[#954C2E] transition">
-            Service
-          </a>
-          <a href="#faq" className="hover:text-[#954C2E] transition">
-            FAQ
-          </a>
-          <a href="#contact" className="hover:text-[#954C2E] transition">
-            Contact
-          </a>
-        </nav>
+        {!isUserPage ? (
+          <nav className="hidden md:flex space-x-8 text-sm font-medium text-blue-800">
+            <a href="#home" className="hover:text-[#954C2E] transition">
+              Home
+            </a>
+            <a href="#about" className="hover:text-[#954C2E] transition">
+              About
+            </a>
+            <a href="#services" className="hover:text-[#954C2E] transition">
+              Service
+            </a>
+            <a href="#faq" className="hover:text-[#954C2E] transition">
+              FAQ
+            </a>
+            <a href="#contact" className="hover:text-[#954C2E] transition">
+              Contact
+            </a>
+          </nav>
+        ) : (
+          <nav className="hidden md:flex space-x-8 text-sm font-medium text-blue-800">
+             <a href="dashboard" className="hover:text-[#954C2E] transition">
+              Dashboard
+            </a>
+            <a href="#about" className="hover:text-[#954C2E] transition">
+              Orders
+            </a>
+            <a href="services" className="hover:text-[#954C2E] transition">
+              Services
+            </a>
+            <a href="#services" className="hover:text-[#954C2E] transition">
+              Add Fund
+            </a>
+            <a href="history" className="hover:text-[#954C2E] transition">
+              Fund History
+            </a>
+            <a href="transactions" className="hover:text-[#954C2E] transition">
+              Transactions
+            </a>
+          </nav>
+        )}
 
         {/* Mobile Menu Toggle */}
         <div className="md:hidden">
