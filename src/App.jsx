@@ -7,6 +7,9 @@ import Services from "./pages/Services";
 import AddFund from "./pages/AddFund";
 import History from "./pages/History";
 import Transactions from "./pages/Transactions";
+import NewOrder from "./pages/NewOrder";
+import AllOrders from "./pages/AllOrders";
+import OrderRefill from "./pages/OrderRefill";
 
 
 const App = () => {
@@ -20,6 +23,11 @@ const App = () => {
         <Route path="/user/funds" element={<AddFund/>} />
         <Route path="/user/history" element={<History/>} />
         <Route path="/user/transactions" element={<Transactions/>} />
+        <Route path="/user/new-order" element={<NewOrder/>} />
+        <Route path="/user/all-orders" element={<AllOrders/>} />
+        <Route path="/user/order-refill" element={<OrderRefill/>} />
+        <Route path="/user/drip-feed" element={<OrderRefill/>} />
+        <Route path="/user/mass-order" element={<OrderRefill/>} />
         </Route>
     )
   )
