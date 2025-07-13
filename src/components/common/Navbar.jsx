@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, User } from "lucide-react";
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [isUserPage, setIsUserPage] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
-    const userpage =
-      typeof window !== "undefined" &&
-      window.location.pathname.includes("user");
-    setIsUserPage(userpage);
-  }, []);
+    setIsUserPage(location.pathname.includes("/user"));
+  }, [location.pathname]);
+
 
   const generalLinks = [
     { label: "Home", href: "#home" },
@@ -36,6 +36,17 @@ const Navbar = () => {
     { label: "Refill Orders", href: "/user/order-refill" },
     { label: "Drip Feed", href: "/user/drip-feed" },
   ];
+
+  const userDropdownLinks = [
+    {label: 'My Profile', href:"/user/my-profile" },
+    {label: 'My Referral', href:"/user/my-referral" },
+    {label: 'Referral Bonus', href:"/user/referral-bonus" },
+    // {label: 'API Setting', href:"/user/api-setting" },
+    {label: 'Open Ticket', href:"/user/open-ticket" },
+    {label: 'Show Ticket ', href:"/user/show-ticket" },
+    {label: '2FA Verification', href:"/user/2fa-verification" },
+    {label: 'Log out', href:"/" }
+  ]
 
   return (
     <header
@@ -98,6 +109,25 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
+                        {/* Orders Dropdown (Desktop) */}
+            <div className="relative group">
+              <div className="flex items-center space-x-1 hover:text-[#954C2E] cursor-pointer">
+                <User/>
+                <span>USER</span>
+                <ChevronDown size={16} />
+              </div>
+              <div className="absolute top-full left-0 mt-2 w-44 bg-white border border-gray-200 shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                {userDropdownLinks.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className="block px-4 py-2 text-sm text-[#003087] hover:bg-gray-100"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            </div>
           </nav>
         )}
 

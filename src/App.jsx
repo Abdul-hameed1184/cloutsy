@@ -10,6 +10,10 @@ import Transactions from "./pages/Transactions";
 import NewOrder from "./pages/NewOrder";
 import AllOrders from "./pages/AllOrders";
 import OrderRefill from "./pages/OrderRefill";
+import MyProfile from "./pages/MyProfile";
+import MyReferral from "./pages/MyReferral";
+import OpenTicket from "./pages/OpenTicket";
+import ShowTicket from "./pages/ShowTicket";
 
 
 const App = () => {
@@ -28,6 +32,10 @@ const App = () => {
         <Route path="/user/order-refill" element={<OrderRefill/>} />
         <Route path="/user/drip-feed" element={<OrderRefill/>} />
         <Route path="/user/mass-order" element={<OrderRefill/>} />
+        <Route path="/user/my-profile" element={<MyProfile/>} />
+        <Route path="/user/my-referral" element={<MyReferral/>} />
+        <Route path="/user/open-ticket" element={<OpenTicket/>} />
+        <Route path="/user/show-ticket" element={<ShowTicket/>} />
         </Route>
     )
   )
