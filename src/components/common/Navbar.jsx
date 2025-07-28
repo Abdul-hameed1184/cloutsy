@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import { Menu, X, ChevronDown, User } from "lucide-react";
+import { Menu, X, ChevronDown, User, LogOut } from "lucide-react";
 import { useLocation } from "react-router-dom";
+import useAuthStore from "../../store/useAuthStore";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [isUserPage, setIsUserPage] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const location = useLocation();
+  const {logout} = useAuthStore()
 
   useEffect(() => {
     setIsUserPage(location.pathname.includes("/user"));
@@ -44,7 +46,7 @@ const Navbar = () => {
     // {label: 'API Setting', href:"/user/api-setting" },
     {label: 'Open Ticket', href:"/user/open-ticket" },
     {label: 'Show Ticket ', href:"/user/show-ticket" },
-    {label: '2FA Verification', href:"/user/2fa-verification" },
+    // {label: '2FA Verification', href:"/user/2fa-verification" },
     {label: 'Log out', href:"/" }
   ]
 
@@ -200,6 +202,11 @@ const Navbar = () => {
                     {link.label}
                   </a>
                 ))}
+                <button className="items-center justify-between w-full hover:text-[#954C2E] transition-colors"
+                onClick={()=> logout()}
+                >
+                  <LogOut/>
+                </button>
               </>
             )}
         </div>

@@ -1,9 +1,40 @@
 import { Lock, User } from "lucide-react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import useAuthStore from "../../store/useAuthStore";
 
 const HeroSection = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [form, setForm] = useState({ username: "", password: "" });
+  const [localError, setLocalError] = useState("");
+  const { login, loading, error, setError } = useAuthStore();
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+    setLocalError("");
+    if (setError) setError(null);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // Validation
+    if (!form.username || !form.password) {
+      setLocalError("Please enter both username and password.");
+      if (setError) setError(null);
+      return;
+    }
+    // Call login from store
+    const success = await login(form.username, form.password);
+    if (success) {
+      navigate("/user/dashboard");
+    }
+    // If login fails, error will be shown from store
+  };
+
+  const handleSignUp = () => {
+    navigate("/register");
+  };
 
   return (
     <section className="min-h-[90vh] w-full bg-[#17005d] flex items-center px-4 md:px-10 py-6 pt-28 overflow-hidden">
@@ -25,43 +56,56 @@ const HeroSection = () => {
           </h1>
 
           <p className="max-w-md text-gray-200 text-sm lg:text-base">
-            Affordable. Fast. Reliable. Get real followers, likes, views & more across all 
-            major platforms — delivered instantly.
+            Affordable. Fast. Reliable. Get real followers, likes, views & more
+            across all major platforms — delivered instantly.
           </p>
 
           <form
             className="w-full bg-[#0f003b] p-5 pt-6 pb-8 rounded-xl space-y-4 shadow-lg"
-            onSubmit={(e) => {
-              e.preventDefault();
-              navigate("/user/dashboard");
-            }}
+            onSubmit={handleSubmit}
+            autoComplete="off"
           >
             <div className="relative">
               <User className="absolute left-3 top-3 text-gray-400 w-5 h-5" />
               <input
                 type="text"
+                name="username"
+                value={form.username}
+                onChange={handleChange}
                 placeholder="Email Or Username"
                 className="w-full py-2.5 pl-10 pr-4 text-white placeholder-gray-400 bg-[#1f4ca6] 
                           rounded-full
                            focus:ring-2 focus:ring-yellow-400 outline-none"
+                autoComplete="username"
               />
             </div>
             <div className="relative">
               <Lock className="absolute left-3 top-3 text-gray-400 w-5 h-5" />
               <input
                 type="password"
+                name="password"
+                value={form.password}
+                onChange={handleChange}
                 placeholder="Password"
                 className="w-full py-2.5 pl-10 pr-4 text-white placeholder-gray-400 bg-[#1f4ca6] 
                            rounded-full 
                            focus:ring-2 focus:ring-yellow-400 outline-none"
+                autoComplete="current-password"
               />
             </div>
-
+            {(localError || error) && (
+              <div className="text-red-400 text-xs text-center">
+                {localError || error}
+              </div>
+            )}
             <button
               type="submit"
-              className="w-full py-3 bg-yellow-400 text-black font-semibold rounded-full hover:bg-yellow-500 transition-colors"
+              className={`w-full py-3 bg-yellow-400 text-black font-semibold rounded-full hover:bg-yellow-500 transition-colors ${
+                loading ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+              disabled={loading}
             >
-              Sign In
+              {loading ? "Signing In..." : "Sign In"}
             </button>
           </form>
 
@@ -69,14 +113,16 @@ const HeroSection = () => {
             <p className="text-yellow-400 font-medium">Forgot Your Password?</p>
             <p>
               Don’t have an account?{" "}
-              <span className="text-yellow-400 font-bold cursor-pointer" onClick={()=> navigate('/register')}>
+              <span
+                className="text-yellow-400 font-bold cursor-pointer"
+                onClick={handleSignUp}
+              >
                 Sign up
               </span>
             </p>
           </div>
         </motion.div>
 
-        {/* Right Column - Bigger Hexagon */}
         <motion.div
           initial={{ x: 80, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -84,7 +130,7 @@ const HeroSection = () => {
           className="flex justify-center items-center"
         >
           <div className="relative w-[340px] h-[340px] md:w-[500px] md:h-[500px]  overflow-hidden">
-            <img src="/hero_section.svg"  alt="CLOUSTY LOGO" />
+            <img src="/hero_section.svg" alt="CLOUSTY LOGO" />
           </div>
         </motion.div>
       </div>

@@ -1,4 +1,10 @@
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Navigate,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Register from "./pages/Register";
 import Layout from "./Layout";
@@ -14,31 +20,91 @@ import MyProfile from "./pages/MyProfile";
 import MyReferral from "./pages/MyReferral";
 import OpenTicket from "./pages/OpenTicket";
 import ShowTicket from "./pages/ShowTicket";
-
+import { useEffect } from "react";
+import useAuthStore from "./store/useAuthStore";
 
 const App = () => {
+  const { user, checkAuth, loading } = useAuthStore();
+
+  useEffect(() => {
+    checkAuth();
+    console.log({ user });
+  }, [checkAuth]);
+
+  // Wait for authentication check before rendering routes
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Layout/>} >
-        <Route path="/" element={<HomePage />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/user/dashboard" element={<Dashboard/>} />
-        <Route path="/user/services" element={<Services/>} />
-        <Route path="/user/funds" element={<AddFund/>} />
-        <Route path="/user/history" element={<History/>} />
-        <Route path="/user/transactions" element={<Transactions/>} />
-        <Route path="/user/new-order" element={<NewOrder/>} />
-        <Route path="/user/all-orders" element={<AllOrders/>} />
-        <Route path="/user/order-refill" element={<OrderRefill/>} />
-        <Route path="/user/drip-feed" element={<OrderRefill/>} />
-        <Route path="/user/mass-order" element={<OrderRefill/>} />
-        <Route path="/user/my-profile" element={<MyProfile/>} />
-        <Route path="/user/my-referral" element={<MyReferral/>} />
-        <Route path="/user/open-ticket" element={<OpenTicket/>} />
-        <Route path="/user/show-ticket" element={<ShowTicket/>} />
-        </Route>
+      <Route path="/" element={<Layout />}>
+        <Route
+          path="/"
+          element={user ? <Navigate to={"/user/dashboard"} /> : <HomePage />}
+        />
+        <Route
+          path="/register"
+          element={user ? <Navigate to={"/user/dashboard"} /> : <Register />}
+        />
+        <Route
+          path="/user/dashboard"
+          element={user ? <Dashboard /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path="/user/services"
+          element={user ? <Services /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path="/user/funds"
+          element={user ? <AddFund /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path="/user/history"
+          element={user ? <History /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path="/user/transactions"
+          element={user ? <Transactions /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path="/user/new-order"
+          element={user ? <NewOrder /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path="/user/all-orders"
+          element={user ? <AllOrders /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path="/user/order-refill"
+          element={user ? <OrderRefill /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path="/user/drip-feed"
+          element={user ? <OrderRefill /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path="/user/mass-order"
+          element={user ? <OrderRefill /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path="/user/my-profile"
+          element={user ? <MyProfile /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path="/user/my-referral"
+          element={user ? <MyReferral /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path="/user/open-ticket"
+          element={user ? <OpenTicket /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path="/user/show-ticket"
+          element={user ? <ShowTicket /> : <Navigate to={"/"} />}
+        />
+      </Route>
     )
-  )
+  );
   return (
     <div>
       <RouterProvider router={router} />
