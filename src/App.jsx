@@ -33,7 +33,12 @@ const App = () => {
 
   // Wait for authentication check before rendering routes
   if (loading) {
-    return <div>Loading...</div>;
+    return    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white">
+      <div className="flex flex-col items-center space-y-4">
+        <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        <p className="text-blue-700 text-sm font-medium">Loading, please wait...</p>
+      </div>
+    </div>;
   }
   const router = createBrowserRouter(
     createRoutesFromElements(
